@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Latihan Soal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ECE6D8;
+    --paper-deep:#E2DAC7;
+    --line:#CFC4A8;
+    --ink:#242220;
+    --ink-soft:#6b6459;
+    --card:#FAF7EE;
+    --pen-blue:#2B5C82;
+    --pen-blue-soft:#DCE7EE;
+    --pen-red:#AE3226;
+    --pen-red-soft:#F4DBD6;
+    --pen-green:#3E7A4C;
+    --pen-green-soft:#E0EEE2;
+    --shadow:rgba(36,34,32,0.12);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    background-image:
+      repeating-linear-gradient(180deg, transparent, transparent 27px, var(--line) 28px);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    min-height:100vh;
+    padding:32px 16px 80px;
+  }
+  .wrap{max-width:760px; margin:0 auto;}
+  header.app-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    margin-bottom:28px; flex-wrap:wrap; gap:8px;
+  }
+  header.app-head h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:28px; font-weight:700; margin:0;
+    letter-spacing:-0.01em;
+  }
+  header.app-head .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; color:var(--ink-soft);
+    border:1px solid var(--line); padding:4px 8px; border-radius:3px;
+    background:var(--card);
+  }
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:6px;
+    box-shadow:0 2px 10px var(--shadow);
+    padding:24px;
+    margin-bottom:18px;
+  }
+  .card h2{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:18px; margin:0 0 4px;
+  }
+  .muted{color:var(--ink-soft); font-size:14px; margin:0 0 16px;}
+
+  /* --- Setup screen --- */
+  .pickers{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:6px;}
+  .btn{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:600; font-size:14px;
+    border:1.5px solid var(--ink);
+    background:var(--ink); color:var(--card);
+    padding:10px 18px; border-radius:4px;
+    cursor:pointer; transition:transform .08s ease, background .15s ease;
+  }
+  .btn:hover{background:#3a362f;}
+  .btn:active{transform:translateY(1px);}
+  .btn.secondary{
+    background:transparent; color:var(--ink); border-color:var(--line);
+  }
+  .btn.secondary:hover{border-color:var(--ink);}
+  .btn:disabled{opacity:.45; cursor:not-allowed;}
+  input[type=file]{display:none;}
+
+  .bank-list{list-style:none; margin:16px 0 0; padding:0; display:flex; flex-direction:column; gap:8px;}
+  .bank-item{
+    display:flex; align-items:center; gap:12px;
+    border:1.5px solid var(--line); border-radius:5px;
+    padding:12px 14px; cursor:pointer; background:#fff8;
+    transition:border-color .12s ease, background .12s ease;
+  }
+  .bank-item:hover{border-color:var(--pen-blue);}
+  .bank-item.selected{
+    border-color:var(--pen-blue); background:var(--pen-blue-soft);
+  }
+  .bank-item .stamp-no{
+    font-family:'IBM Plex Mono', monospace; font-size:12px;
+    width:26px; height:26px; border-radius:50%;
+    border:1.5px solid var(--ink-soft); color:var(--ink-soft);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .bank-item.selected .stamp-no{border-color:var(--pen-blue); color:var(--pen-blue);}
+  .bank-item .name{font-weight:600; font-size:14px;}
+  .bank-item .count{margin-left:auto; font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft);}
+
+  .row{display:flex; align-items:center; gap:10px; margin-top:16px; flex-wrap:wrap;}
+  .row label{font-size:13px; color:var(--ink-soft);}
+  .row input[type=number]{
+    width:70px; padding:6px 8px; border:1px solid var(--line); border-radius:4px;
+    font-family:'IBM Plex Mono', monospace; background:#fff;
+  }
+
+  .empty-note{
+    font-size:13px; color:var(--ink-soft); border:1px dashed var(--line);
+    border-radius:5px; padding:14px; margin-top:14px; background:#fff6;
+  }
+
+  /* --- Quiz screen --- */
+  .progress-bar{
+    height:6px; background:var(--paper-deep); border-radius:3px; overflow:hidden;
+    margin-bottom:22px; border:1px solid var(--line);
+  }
+  .progress-fill{height:100%; background:var(--pen-blue); width:0%; transition:width .2s ease;}
+
+  .q-card{position:relative; padding-left:56px;}
+  .q-card .q-no{
+    position:absolute; left:18px; top:24px;
+    font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:13px;
+    width:30px; height:30px; border-radius:50%;
+    border:1.5px solid var(--ink); display:flex; align-items:center; justify-content:center;
+  }
+  .q-card h2{font-size:16px; line-height:1.5; font-weight:600; font-family:'IBM Plex Sans';}
+  .options{display:flex; flex-direction:column; gap:8px; margin-top:14px;}
+  .option{
+    display:flex; align-items:flex-start; gap:10px;
+    border:1.5px solid var(--line); border-radius:5px;
+    padding:10px 12px; cursor:pointer; font-size:14.5px;
+    background:#fff8; transition:border-color .12s ease, background .12s ease;
+  }
+  .option:hover{border-color:var(--pen-blue);}
+  .option input{margin-top:3px; accent-color:var(--pen-blue);}
+  .option.picked{border-color:var(--pen-blue); background:var(--pen-blue-soft);}
+
+  .option.correct{border-color:var(--pen-green); background:var(--pen-green-soft);}
+  .option.wrong{border-color:var(--pen-red); background:var(--pen-red-soft);}
+  .mark{margin-left:auto; font-family:'IBM Plex Mono', monospace; font-size:12px; font-weight:600;}
+  .mark.correct{color:var(--pen-green);}
+  .mark.wrong{color:var(--pen-red);}
+
+  .submit-bar{
+    position:sticky; bottom:14px; display:flex; justify-content:center; margin-top:24px;
+  }
+  .submit-bar .btn{padding:13px 30px; font-size:15px; box-shadow:0 4px 14px var(--shadow);}
+
+  .unanswered-note{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--pen-red);
+    text-align:center; margin-top:10px; min-height:16px;
+  }
+
+  /* --- Result screen --- */
+  .result-head{display:flex; align-items:center; gap:22px; flex-wrap:wrap;}
+  .stamp{
+    font-family:'IBM Plex Mono', monospace; font-weight:700;
+    border:3px double var(--pen-red); color:var(--pen-red);
+    border-radius:50%; width:104px; height:104px; flex-shrink:0;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    transform:rotate(-7deg); line-height:1.05;
+  }
+  .stamp .pct{font-size:24px;}
+  .stamp .frac{font-size:11px; margin-top:2px;}
+  .result-summary h2{margin:0 0 4px;}
+  .result-summary p{margin:0; color:var(--ink-soft); font-size:14px;}
+
+  .review-item{border-top:1px dashed var(--line); padding:16px 0;}
+  .review-item:first-child{border-top:none; padding-top:4px;}
+  .review-q{font-weight:600; font-size:14.5px; margin-bottom:8px; display:flex; gap:8px;}
+  .review-q .idx{font-family:'IBM Plex Mono', monospace; color:var(--ink-soft); flex-shrink:0;}
+  .review-line{font-size:13.5px; margin:3px 0 3px 26px; display:flex; gap:6px;}
+  .review-line .label{color:var(--ink-soft); min-width:82px; flex-shrink:0;}
+  .review-line.your-wrong .val{color:var(--pen-red); font-weight:600;}
+  .review-line.correct .val{color:var(--pen-green); font-weight:600;}
+
+  .end-actions{display:flex; gap:12px; justify-content:center; margin-top:20px; flex-wrap:wrap;}
+
+  .hidden{display:none !important;}
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="app-head">
+    <h1>Latihan Soal</h1>
+    <span class="tag" id="headTag">bank soal · pilihan ganda</span>
+  </header>
+
+  <!-- SETUP SCREEN -->
+  <section id="setupScreen">
+    <div class="card">
+      <h2>1. Muat bank soal</h2>
+      <p class="muted">Pilih folder "soal" (berisi file .csv), atau pilih file CSV satu per satu. Kolom yang diharapkan: pertanyaan, jawaban 1 (kunci jawaban benar), jawaban 2, jawaban 3, jawaban 4, jawaban 5 (opsional — boleh dikosongkan jika hanya 4 pilihan).</p>
+      <p class="muted" id="autoLoadStatus" style="margin-bottom:14px;"></p>
+      <div class="pickers">
+        <button class="btn" id="pickFolderBtn">Pilih folder soal</button>
+        <button class="btn secondary" id="pickFilesBtn">Pilih file CSV</button>
+        <input type="file" id="folderInput" webkitdirectory directory multiple>
+        <input type="file" id="filesInput" accept=".csv" multiple>
+      </div>
+      <ul class="bank-list" id="bankList"></ul>
+      <p class="empty-note" id="emptyNote">Belum ada bank soal dimuat.</p>
+    </div>
+
+    <div class="card hidden" id="startCard">
+      <h2>2. Mulai latihan</h2>
+      <p class="muted" id="selectedBankInfo"></p>
+      <div class="row">
+        <label for="numQInput">Jumlah soal ditampilkan</label>
+        <input type="number" id="numQInput" min="1" value="1">
+        <span class="muted" id="totalQNote" style="margin:0;"></span>
+      </div>
+      <div class="row">
+        <button class="btn" id="startBtn">Mulai latihan →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ SCREEN -->
+  <section id="quizScreen" class="hidden">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div id="questionsContainer"></div>
+    <div class="submit-bar"><button class="btn" id="submitBtn">Selesai &amp; lihat skor</button></div>
+    <p class="unanswered-note" id="unansweredNote"></p>
+  </section>
+
+  <!-- RESULT SCREEN -->
+  <section id="resultScreen" class="hidden">
+    <div class="card">
+      <div class="result-head">
+        <div class="stamp">
+          <span class="pct" id="stampPct">0%</span>
+          <span class="frac" id="stampFrac">0/0</span>
+        </div>
+        <div class="result-summary">
+          <h2>Hasil latihan</h2>
+          <p id="resultTagline"></p>
+        </div>
+      </div>
+    </div>
+    <div class="card" id="reviewCard">
+      <h2>Pembahasan</h2>
+      <div id="reviewList"></div>
+    </div>
+    <div class="end-actions">
+      <button class="btn" id="retryBtn">Ulangi soal ini</button>
+      <button class="btn secondary" id="backToBankBtn">Pilih bank soal lain</button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  // ---------- state ----------
+  let banks = [];            // [{name, file, questions:[...] }]
+  let selectedBankIdx = null;
+  let quiz = [];              // active shuffled quiz: [{question, options:[{text,isCorrect}], picked:null}]
+
+  // ---------- elements ----------
+  const folderInput = document.getElementById('folderInput');
+  const filesInput = document.getElementById('filesInput');
+  const pickFolderBtn = document.getElementById('pickFolderBtn');
+  const pickFilesBtn = document.getElementById('pickFilesBtn');
+  const bankList = document.getElementById('bankList');
+  const emptyNote = document.getElementById('emptyNote');
+  const startCard = document.getElementById('startCard');
+  const selectedBankInfo = document.getElementById('selectedBankInfo');
+  const numQInput = document.getElementById('numQInput');
+  const totalQNote = document.getElementById('totalQNote');
+  const startBtn = document.getElementById('startBtn');
+
+  const setupScreen = document.getElementById('setupScreen');
+  const quizScreen = document.getElementById('quizScreen');
+  const resultScreen = document.getElementById('resultScreen');
+  const questionsContainer = document.getElementById('questionsContainer');
+  const progressFill = document.getElementById('progressFill');
+  const submitBtn = document.getElementById('submitBtn');
+  const unansweredNote = document.getElementById('unansweredNote');
+
+  const stampPct = document.getElementById('stampPct');
+  const stampFrac = document.getElementById('stampFrac');
+  const resultTagline = document.getElementById('resultTagline');
+  const reviewList = document.getElementById('reviewList');
+  const retryBtn = document.getElementById('retryBtn');
+  const backToBankBtn = document.getElementById('backToBankBtn');
+
+  pickFolderBtn.addEventListener('click', () => folderInput.click());
+  pickFilesBtn.addEventListener('click', () => filesInput.click());
+  folderInput.addEventListener('change', e => handleFiles(e.target.files));
+  filesInput.addEventListener('change', e => handleFiles(e.target.files));
+
+  const autoLoadStatus = document.getElementById('autoLoadStatus');
+
+  // ---------- auto-load bank soal from ./soal next to this HTML file ----------
+  async function autoLoadFromFolder(){
+    autoLoadStatus.textContent = 'Mencoba memuat otomatis dari folder "soal"...';
+    let filenames = [];
+
+    // Attempt 1: server-generated directory listing (works with e.g. `python -m http.server`)
+    try {
+      const res = await fetch('soal/');
+      if (res.ok){
+        const ct = res.headers.get('content-type') || '';
+        if (ct.includes('text/html')){
+          const html = await res.text();
+          const doc = new DOMParser().parseFromString(html, 'text/html');
+          filenames = Array.from(doc.querySelectorAll('a'))
+            .map(a => a.getAttribute('href') || '')
+            .filter(href => href.toLowerCase().endsWith('.csv'))
+            .map(href => decodeURIComponent(href.split('/').pop()));
+        }
+      }
+    } catch (e) { /* file:// atau server tanpa directory listing — coba manifest */ }
+
+    // Attempt 2: soal/manifest.json — daftar nama file csv, dipakai server yang tidak
+    // mengaktifkan directory listing (misal: ["ipa-kelas5.csv","matematika-dasar.csv"])
+    if (!filenames.length){
+      try {
+        const res = await fetch('soal/manifest.json');
+        if (res.ok){
+          const list = await res.json();
+          if (Array.isArray(list)) filenames = list.filter(f => f.toLowerCase().endsWith('.csv'));
+        }
+      } catch (e) { /* tidak ada manifest juga — tidak apa-apa, tetap bisa upload manual */ }
+    }
+
+    if (!filenames.length){
+      autoLoadStatus.textContent = 'Tidak ada bank soal otomatis terdeteksi dari folder "soal" (perlu dibuka lewat local server, atau tambahkan soal/manifest.json). Kamu tetap bisa memilih folder/file secara manual di bawah.';
+      renderBankList();
+      return;
+    }
+
+    let loaded = 0;
+    for (const fname of filenames){
+      try {
+        const res = await fetch('soal/' + fname);
+        if (!res.ok) continue;
+        const text = await res.text();
+        const questions = rowsToQuestions(parseCSV(text));
+        if (!questions.length) continue;
+        const name = fname.replace(/\.csv$/i, '');
+        if (banks.some(b => b.name === name)) continue;
+        banks.push({ name, questions });
+        loaded++;
+      } catch (e) { console.error('Gagal memuat ' + fname, e); }
+    }
+
+    autoLoadStatus.textContent = loaded
+      ? `${loaded} bank soal dimuat otomatis dari folder "soal".`
+      : 'Folder "soal" terdeteksi tapi tidak ada file CSV yang berhasil dibaca. Kamu tetap bisa memilih folder/file secara manual di bawah.';
+    renderBankList();
+  }
+
+  // ---------- CSV parsing ----------
+  function parseCSV(text){
+    const rows = [];
+    let row = [], field = '', inQuotes = false;
+    for (let i = 0; i < text.length; i++){
+      const c = text[i];
+      if (inQuotes){
+        if (c === '"'){
+          if (text[i+1] === '"'){ field += '"'; i++; }
+          else inQuotes = false;
+        } else field += c;
+      } else {
+        if (c === '"') inQuotes = true;
+        else if (c === ','){ row.push(field); field = ''; }
+        else if (c === '\n'){ row.push(field); rows.push(row); row = []; field = ''; }
+        else if (c === '\r'){ /* skip */ }
+        else field += c;
+      }
+    }
+    if (field.length > 0 || row.length > 0){ row.push(field); rows.push(row); }
+    return rows.filter(r => r.some(cell => (cell || '').trim() !== ''));
+  }
+
+  function rowsToQuestions(rows){
+    let data = rows;
+    if (data.length){
+      const first = (data[0][0] || '').toLowerCase();
+      if (first.includes('pertanyaan') || first.includes('soal') || first.includes('question')){
+        data = data.slice(1);
+      }
+    }
+    return data.map(r => ({
+      question: (r[0] || '').trim(),
+      answers: [r[1], r[2], r[3], r[4], r[5]]
+        .map(a => (a || '').trim())
+        .filter(a => a !== '')
+    })).filter(q => q.question && q.answers[0]);
+  }
+
+  // ---------- file handling ----------
+  async function handleFiles(fileList){
+    const csvFiles = Array.from(fileList).filter(f => f.name.toLowerCase().endsWith('.csv'));
+    if (!csvFiles.length) return;
+
+    for (const file of csvFiles){
+      try {
+        const text = await file.text();
+        const rows = parseCSV(text);
+        const questions = rowsToQuestions(rows);
+        if (!questions.length) continue;
+        const name = file.name.replace(/\.csv$/i, '');
+        // avoid duplicate names
+        if (banks.some(b => b.name === name)) continue;
+        banks.push({ name, questions });
+      } catch (err){
+        console.error('Gagal membaca ' + file.name, err);
+      }
+    }
+    renderBankList();
+  }
+
+  function renderBankList(){
+    bankList.innerHTML = '';
+    if (!banks.length){
+      emptyNote.classList.remove('hidden');
+      startCard.classList.add('hidden');
+      return;
+    }
+    emptyNote.classList.add('hidden');
+
+    banks.forEach((bank, idx) => {
+      const li = document.createElement('li');
+      li.className = 'bank-item' + (idx === selectedBankIdx ? ' selected' : '');
+      li.innerHTML = `
+        <span class="stamp-no">${idx + 1}</span>
+        <span class="name">${escapeHtml(bank.name)}</span>
+        <span class="count">${bank.questions.length} soal</span>
+      `;
+      li.addEventListener('click', () => selectBank(idx));
+      bankList.appendChild(li);
+    });
+  }
+
+  function selectBank(idx){
+    selectedBankIdx = idx;
+    renderBankList();
+    const bank = banks[idx];
+    startCard.classList.remove('hidden');
+    selectedBankInfo.textContent = `Bank soal terpilih: "${bank.name}" — ${bank.questions.length} soal tersedia.`;
+    numQInput.max = bank.questions.length;
+    numQInput.value = bank.questions.length;
+    totalQNote.textContent = `(maks. ${bank.questions.length})`;
+  }
+
+  function escapeHtml(str){
+    const d = document.createElement('div');
+    d.textContent = str;
+    return d.innerHTML;
+  }
+
+  // ---------- shuffle ----------
+  function shuffle(arr){
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  // ---------- quiz building ----------
+  function buildQuiz(){
+    const bank = banks[selectedBankIdx];
+    let count = parseInt(numQInput.value, 10);
+    if (!count || count < 1) count = 1;
+    if (count > bank.questions.length) count = bank.questions.length;
+
+    const chosen = shuffle(bank.questions).slice(0, count);
+    quiz = chosen.map(q => {
+      const options = shuffle(q.answers.map((text, i) => ({ text, isCorrect: i === 0 })));
+      return { question: q.question, options, picked: null };
+    });
+  }
+
+  function renderQuiz(){
+    questionsContainer.innerHTML = '';
+    quiz.forEach((q, qi) => {
+      const card = document.createElement('div');
+      card.className = 'card q-card';
+      card.innerHTML = `
+        <span class="q-no">${qi + 1}</span>
+        <h2>${escapeHtml(q.question)}</h2>
+        <div class="options" data-qi="${qi}"></div>
+      `;
+      const optsWrap = card.querySelector('.options');
+      q.options.forEach((opt, oi) => {
+        const label = document.createElement('label');
+        label.className = 'option';
+        label.innerHTML = `
+          <input type="radio" name="q${qi}" value="${oi}">
+          <span>${escapeHtml(opt.text)}</span>
+        `;
+        label.addEventListener('click', () => {
+          q.picked = oi;
+          optsWrap.querySelectorAll('.option').forEach(el => el.classList.remove('picked'));
+          label.classList.add('picked');
+          label.querySelector('input').checked = true;
+          updateProgress();
+        });
+        optsWrap.appendChild(label);
+      });
+      questionsContainer.appendChild(card);
+    });
+    updateProgress();
+  }
+
+  function updateProgress(){
+    const answered = quiz.filter(q => q.picked !== null).length;
+    const pct = quiz.length ? Math.round((answered / quiz.length) * 100) : 0;
+    progressFill.style.width = pct + '%';
+  }
+
+  // ---------- submit / result ----------
+  submitBtn.addEventListener('click', () => {
+    const unanswered = quiz.filter(q => q.picked === null).length;
+    if (unanswered > 0){
+      unansweredNote.textContent = `Masih ada ${unanswered} soal belum dijawab. Tetap kirim jawaban?`;
+      if (submitBtn.dataset.confirmed !== 'true'){
+        submitBtn.dataset.confirmed = 'true';
+        submitBtn.textContent = 'Ya, tetap kirim';
+        return;
+      }
+    }
+    submitBtn.dataset.confirmed = 'false';
+    submitBtn.textContent = 'Selesai & lihat skor';
+    unansweredNote.textContent = '';
+    showResult();
+  });
+
+  function showResult(){
+    // mark options visually
+    document.querySelectorAll('.options').forEach(wrap => {
+      const qi = parseInt(wrap.dataset.qi, 10);
+      const q = quiz[qi];
+      wrap.querySelectorAll('.option').forEach((el, oi) => {
+        const opt = q.options[oi];
+        if (opt.isCorrect) el.classList.add('correct');
+        if (q.picked === oi && !opt.isCorrect) el.classList.add('wrong');
+        el.querySelector('input').disabled = true;
+        if (opt.isCorrect || q.picked === oi){
+          const mark = document.createElement('span');
+          mark.className = 'mark ' + (opt.isCorrect ? 'correct' : 'wrong');
+          mark.textContent = opt.isCorrect ? '✓ kunci' : '✗ pilihanmu';
+          el.appendChild(mark);
+        }
+      });
+    });
+
+    const total = quiz.length;
+    const correct = quiz.filter(q => q.options[q.picked] && q.options[q.picked].isCorrect).length;
+    const pct = total ? Math.round((correct / total) * 100) : 0;
+
+    stampPct.textContent = pct + '%';
+    stampFrac.textContent = `${correct}/${total}`;
+    resultTagline.textContent = tagline(pct);
+
+    reviewList.innerHTML = '';
+    const wrongOnes = quiz.filter(q => !(q.options[q.picked] && q.options[q.picked].isCorrect));
+
+    if (!wrongOnes.length){
+      reviewList.innerHTML = '<p class="muted">Semua jawaban benar. Tidak ada pembahasan yang perlu ditampilkan.</p>';
+    } else {
+      wrongOnes.forEach((q) => {
+        const qi = quiz.indexOf(q);
+        const correctOpt = q.options.find(o => o.isCorrect);
+        const yourOpt = q.picked !== null ? q.options[q.picked] : null;
+        const div = document.createElement('div');
+        div.className = 'review-item';
+        div.innerHTML = `
+          <div class="review-q"><span class="idx">${qi + 1}.</span><span>${escapeHtml(q.question)}</span></div>
+          <div class="review-line your-wrong"><span class="label">Jawabanmu:</span><span class="val">${yourOpt ? escapeHtml(yourOpt.text) : '(tidak dijawab)'}</span></div>
+          <div class="review-line correct"><span class="label">Jawaban benar:</span><span class="val">${escapeHtml(correctOpt.text)}</span></div>
+        `;
+        reviewList.appendChild(div);
+      });
+    }
+
+    quizScreen.classList.add('hidden');
+    resultScreen.classList.remove('hidden');
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  function tagline(pct){
+    if (pct === 100) return 'Sempurna — semua jawaban benar.';
+    if (pct >= 80) return 'Bagus — hampir semua jawaban benar.';
+    if (pct >= 60) return 'Lumayan — masih ada beberapa yang perlu dipelajari lagi.';
+    if (pct >= 40) return 'Perlu latihan lagi pada bagian yang salah.';
+    return 'Coba pelajari kembali materinya, lalu ulangi latihan ini.';
+  }
+
+  // ---------- navigation ----------
+  startBtn.addEventListener('click', () => {
+    if (selectedBankIdx === null) return;
+    buildQuiz();
+    submitBtn.dataset.confirmed = 'false';
+    submitBtn.textContent = 'Selesai & lihat skor';
+    unansweredNote.textContent = '';
+    renderQuiz();
+    setupScreen.classList.add('hidden');
+    quizScreen.classList.remove('hidden');
+    resultScreen.classList.add('hidden');
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  retryBtn.addEventListener('click', () => {
+    buildQuiz();
+    submitBtn.dataset.confirmed = 'false';
+    submitBtn.textContent = 'Selesai & lihat skor';
+    unansweredNote.textContent = '';
+    renderQuiz();
+    resultScreen.classList.add('hidden');
+    quizScreen.classList.remove('hidden');
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  backToBankBtn.addEventListener('click', () => {
+    resultScreen.classList.add('hidden');
+    setupScreen.classList.remove('hidden');
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  autoLoadFromFolder();
+
+})();
+</script>
+</body>
+</html>
