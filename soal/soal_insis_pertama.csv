@@ -1,0 +1,350 @@
+"Pertanyaan","Jawaban Benar","Jawaban Salah 1","Jawaban Salah 2","Jawaban Salah 3","Jawaban Salah 4"
+"Manakah pernyataan yang paling benar:","Concurrency control bertujuan menjaga konsistensi data yang diakses secara simulatan","Concurrency control mengatur hak akses dari pengguna database","Lost Update Problem terjadi saat suatu transaksi membaca data dari transaksi lain yang belum di-commit","Uncommited Dependency Problem adalah masalah terjadi saat satu transaksi membaca beberapa nilai tetapi transaksi kedua pada waktu yang sama memodifikasi nilai tersebut","Uncommited Dependency Problem adalah masalah operasi update yang sukses dari seorang
+pengguna kemudian diikuti oleh operasi update dari pengguna lain."
+"Dalam melakukan pengujian, setiap transaksi yang dilakukan database harus mematuhi empat poin yaitu :","Atomicity, Consistency, Isolation, Durability","Create, Retrieve, Update, Delete","Atomicity, Consistency, Update, Delete","Create, Retrieve, Isolation, Durability","Create, Atomicity, Isolation, Durability"
+"Dalam memvalidasi transaksi pada layanan akses data, jika salah satu bagian dari transaksi gagal maka dapat disimpulkan bahwa transaksi tersebut gagal adalah poin validasi:","Atomicity","Consistency","Isolation","Durability","CRUD"
+"Dari pengujian rancangan akses data  menunjukan suatu transaksi mengeluarkan hasil yang valid adalah poin validasi:","Consistency","Atomicity","Isolation","Durability","Complexity"
+"Setelah transaksi selesai dilakukan, tidak ada faktor eksternal seperti kehilangan daya atau crash yang dapat mengubah hasil transaksi adalah poin valiadasi","Durability","Atomicity","Consistency","Complexity","Isolation"
+"Pada Lock-based Protocols, Jika terdapat suatu transaksi yang merubah suatu nilai dan terdapat transaksi lain yang read/write tetapi menunggu transaksi sebelumnya selesai adalah salah satu metode locking yaitu","Exclusive Locking","Shared Locking","Simplistic Lock Protocol","Deadlock","Pre-claiming Locking"
+"suatu kondisi dimana dua proses atau lebih saling menunggu proses yang lain untuk melepaskan resource yang sedang dipakai. Karena beberapa proses itu saling menunggu, maka tidak terjadi kemajuan dalam kerja proses-proses tersebut","Deadlock","Exclusive Locking","Shared Locking","Simplistic Lock Protocol","Pre-claiming Locking"
+"GRANT SELECT, UPDATE (salary) ON Staff TO Director; Pada query tersebut ini bertujuan untuk memberikan hak akses:","Director untuk melakukan SELECT dan UPDATE kolom salary pada table Staff","Staff untuk melakukan SELECT dan UPDATE table salary pada kolom Director","Staff untuk melakukan SELECT dan UDPATE kolom salary pada table Director","Staff untuk melakukan SELECT dan UPDATE table salary untuk Primary Key dan Director","Director dan Personnel untuk melakukan SELECT dan UPDATE kolom Director pada table salary"
+"REVOKE SELECT ON Rent FROM PUBLIC;
+Pada query di atas ini mencabut hak akses :
+","Public melakukan SELECT pada table Rent","Public melakukan SELECT pada kolom Rent","User melakukan SELECT pada table PUBLIC","Public melakukan selain SELECT pada kolom Rent","User melakukan SELECT pada kolom PUBLIC"
+"REVOKE ALL PRIVILEGES ON Staff FROM Director;
+Pada query tersebut bertujuan untuk:
+","Mencabut hak akses semua previllage kepada Director pada table Staff","Memberikan hak akses semua previllage kepada Director pada table Staff","Mencabut hak akses semua previllage kepada Staff pada table Director","Memberikan hak akases semua previllage kepada Director pada data dengan Primary Key Staff","Mencabut hak akses semua previllage kepada Director pada data dengan Primary Key Staff"
+"Jika kita ingin memberikan hak akses kepada Supervisor untuk SELECT, UPDATE, DELETE table Transaction pada Kolom Approval. Maka perintah yang dibuat adalah ","GRANT SELECT, UPDATE, DELETE (Approval) ON Transaction TO Supervisor;","GRANT SELECT, UPDATE, DELETE (Transaction) ON Approval TO Supervisor;","GRANT SELECT, UPDATE, DELETE (Supervisor) ON Approval TO Transaction;","GRANT SELECT, UPDATE, DELETE (Supervisor) ON Transaction TO Approval;","GRANT SELECT, UPDATE, DELETE (Approval) ON Approval TO Transaction;"
+"GRANT SELECT, UPDATE, DELETE ON Branch TO PUBLIC; Pada query tersebut memberikan hak akses:
+","Memberikan hak akses kepada semua pengguna melakukan SELECT, DELETE, UPDATE pada table Branch","Memberikan hak akses kepada semua pengguna pada table Branch","Memberikan hak akses kepada Branch melakukan SELECT, DELETE, UPDATE pada table PUBLIC","Memberikan hak akses kepada Branch pada table PUBLIC","Memberikan hak akses kepada PUBLIC selain SELECT, DELETE, UPDATE pada table Branch"
+"Jika kita ingin mencabut hak akses Staff dan Supervisor untuk melakukan UPDATE, DELETE, dan INSERT pada table Attandance. Maka perintah yang dibuat adalah ","REVOKE UPDATE, DELETE, INSERT ON Attandance TO Staff, Supervisor;","REVOKE UPDATE, DELETE, INSERT (Attandance) ON Attandace TO Staff, Supervisor;","REVOKE UPDATE, DELETE ON Attandance TO Staff, Supervisor;","REVOKE UPDATE, DELETE, INSERT ON Staff, Supervisor TO Attandance;","REVOKE UPDate, DELETE, INSERT (Staff, Supervisor) ON Attandance TO Employee"
+"Jika kita inging memberikan hak akses penuh kepada Manager pada table Employee maka perintah yang dibuat adalah","GRANT ALL PREVILAGE ON Employee TO Manager;","GRANT SELECT, UPDATE, DELETE, INSERT ON Employee TO Manager;","GRANT SELECT, UPDATE, DELETE (Manager) ON Employee TO Supervisor;","GRANT ALL PREVILAGE ON Manager TO Employee;","GRANT SELECT, UPDATE, DELETE, INSERT ON Manager TO Employee;"
+"Beberapa masalah umum yang dihadapi dalam kinerja database dapat dikelompokan menjadi …","saturation, slowness, corruption","saturation, slowness, degradation","saturation, underperformance, corruption","degradation, slowness, corruption","saturation, degradation, underperformance"
+"Dalam mengetahui kinerja database, terdapat beberapa metrik yang dapat digunakan sebagai berikut, kecuali …","struktur kueri","wait states","signal waits","pemanfaatan CPU/CPU usage","troughput transaksi"
+"Agar suatu proses performance dan tuning dapat sukses dijalankan, berikut langkah-langkah yang dapat dijalankan, kecuali …","Menjalankan rencana retensi data secara rutin","Mengelompokan isu pada database","Berfokus pada metrik yang saling berhubungan","Mengukur hasil dari waktu ke waktu","Menjalankan maintanance database secara rutin"
+"Metrik yang menunjukan waktu yang dibutuhkan database untuk mengeksekusi query disebut …","wait states","response time","troughput transaksi","signal waits","CPU usage"
+"Metrik yang penting diperhatikan terutama untuk mendukung database di cloud adalah …","bandwidth dan usage jaringan","latency disk I/O","signal waits","response time","CPU usage"
+"Selain untuk mempertahankan kinerja manajemen database saat workload terus meningkat, beberapa alasan database administrator harus melakukan performance tuning adalah sebagai berikut, kecuali ..","over-performing queries","performance degradation","capacity planning","scalability analysis","under-utilized hardware"
+"Mengukur tolok ukur troughput maksimum yang dicapai oleh database merupakan salah satu alasan dilakukanya performance testing, merupakan pengertian dari …","capacity planning","scalabilty analysis","scalability planning","query tuning","I/O tuning"
+"Kepanjangan dari RPO adalah ...","Recovery Point Objective","Recovery Plan Objective","Recovery Performance Objective","Response Plan Objective","Response Plan Output"
+"Manakah variabel sistem yang dapat memberitahu optimizer untuk melewati plan tertentu berdasarkan perkiraan jumlah baris yang diakses untuk setiap tabel?","optimizer_prune_level","optimizer_search_depth","optimizer_search","optimizer_prune","optimizer_prune_depth"
+"Indikator status mana yang menilai seberapa efektif cache tabel?","opened_tables","open_tables","opens_tables","close_tables","closed_tables"
+"Mengakses data dari manakah yang lebih cepat? Apakah memori atau disk?","memori","disk","kecepatanya sama","tergantung mesin","tergantung data"
+"Untuk menjaga kinerja tabel yang memiliki panjang baris variabel, pernyataan mana yang digunakan?","OPTIMIZE TABLE","BALANCE TABLE","ADJUST TABLE","MINIMIZE  TABLE","MAINTAIN TABLE"
+"Untuk meminimalkan I / O disk, mana yang harus dipilih? CHAR, VARCHAR","VARCHAR","CHAR","CHAR & VARCHAR","keduanya sama saja","tidak dapat ditentukan"
+"Manakah dari berikut ini yang membutuhkan lebih banyak ruang? Variable length columns, Fixed length columns","fixed length","variable length","fixed length & variable length","sama","tidak dapat ditentukan"
+"Mana yang lebih efisien?
+LOAD DATA, INSERT","LOAD DATA","INSERT","LOAD DATA & INSERT","sama sama efisien","tidak dapat ditentukan"
+"Beberapa solusi yang dapat dipilih untuk mengatasi masalah performance database, berikut solusi yang membutuhkan cost dan masalah yang sama cepat atau lambat dapat muncul kembali, kecuali ..","performance dan tuning","mengupgrade prosesor","menambahkan memori","membeli tambahan volume disk","membeli tambahan cache"
+"Kebijakan mengontrol cara menyimpan data untuk alasan kepatuhan atau peraturan, serta cara membuang data setelah tidak lagi diperlukan disebut …","data retention policy","backup data policy","data storage policy","backup data plan","data deletion policy"
+"Berikut merupakan hal-hal yang ditentukan dalam rencana retensi data, kecuali …","Apakah ada data yang tidak perlu dibuatkan rencana retensi","Format penyimpanan data","Berapa lama data harus disimpan","Apakah akhirnya data diarsipkan atau dihapuskan","Siapa yang memiliki kewenangan untuk menghapus data"
+"Apakah dalam rencana retensi data perlu dilakukan backup data secara konsisten?","Perlu","Tidak perlu","Tergantung jenis data","Perlu tapi hanya sekali saja","Perlu sesering mungkin"
+"Ketika periode retensi data berakhir, maka terdapat beberapa pilihan yang dapat dilakukan terhadap data tersebut, diantaranya …","dihapus, dipindahkan ke secondary storage, disimpan permanen","dihapus ","dipindahkan ke secondary storage","tergantung kebijakan","ditambahkan masa retensinya"
+"Rencana retensi data memiliki beberapa manfaat sebagai berikut, kecuali …","Mengurangi user experience","Mempercepat penelusuran dalam pencarian","Menghemat ruang untuk data baru","Biaya penyimpanan lebih rendah","Meningkatkan efektifitas infrastruktur penyimpanan data"
+"Masa simpan minimal suatu jenis data pada unit pengolah disebut …","Retensi aktif","Retensi inaktif","Jadwal retensi data","Rencana retensi data","Data aktif"
+"Masa simpan minimal suatu jenis data pada unit pengarsipan disebut …","Retensi inaktif","Retensi aktif","Jadwal retensi data","Rencana retensi data","Data arsip"
+"1. Mengidentifikasi dan menentukan dukungan infrasutruktur TI untuk retensi data
+2. Mengidentifikasi data dalam beberapa kategori
+3. Menyusun Jadwal Retensi Data
+4. Membuat dokumentasi rencana
+5. Menyusun Standard Operational Procedure retensi data
+6. Menyusun skema penyimpanan retensi data 
+Langkah-langkah menyusun rencana retensi data yang benar yaitu ...","2-3-5-6-1-4","2-3-5-6-4-1","3-2-5-6-4-1","3-2-4-5-6-1","1-2-3-4-5-6"
+"... adalah sistem tempat operasi seperti ekstraksi data, transformasi, dan operasi pemuatan dijalankan.","Data staging","Gold zone","Data Integration","OLTP","Data Lake"
+"Manakah dari berikut ini merupakan proses yang mendasarkan tindakan dan keputusan organisasi pada hasil kinerja terukur yang sebenarnya?","Intitutional perfomance management","Gap analysis","Slice and Dice","SWOT","ETL"
+"1) OBIEE; 2) SSAS; 3) SSIS; 4) SSMS 5)SSRS. Manakah aplikasi yang bukan merupakan bagian BI pada SQL Server Stack. ","Poin 2,3, dan 5","Poin 1, 3, dan 5 ","Poin 1,3,4, dan 5","Poin 1, 3, dan 5","Poin 1, 4, dan 5"
+"Di dalam sebuah dokumen kebutuhan data warehouse terdapat ?","Information Package","Data Mining","Requirement Gathering
+","Data Staging","Raw Data"
+"Memiliki record yang lebih sedikit pada sebuah tabel, merupakan ciri-ciri dari ?","Dimension Table","Fact Table","Master Table","Operational Table","Flat Table"
+"Salah satu tujuan dari normalisasi tabel dimensi adalah ","Mengurangi redudansi","Mencegah anomali","Mengompresi data","Menjaga kompleskitas data","Mengurangi kategori data"
+"Apa isi dari fact table ","Berupa data-data transaksi operasional*","Data kategori","Berupa data-data master","Berupa data-data hasil summary","Berupa data-data primary key"
+"Salah satu alasan mengapa menggunakan star schema ?","Menyediakan performa teroptimasi untuk star query umum.*","Rancangan mudah dibuat","Membuat perintah SQL lebih mudah digunakan","membuat relasi menjadi many to many","Memungkinkan penggunaan joint table jadi lebih mudah"
+"Mempermudah query, mengontrol akses data, dan mengubah nama kolom, tanpa redundancy dan kehilangan integritas referensi karena denormalisasi. Hal tersebut merupakan keuntungan dari","Views","Aspects","Cardinality","Constraint","Domains"
+"Tujuan dari normalisasi adalah untuk menempatkan atribut dari entitas model data pada satu tempat guna menghindari redundancy dan kondisi yang tidak konsisten yang dapat muncul karena redundancy. Berikut termasuk dalam level normalisasi, kecuali","BENF","1NF","2NF","BCNF","4NF"
+"Relationship pada relasi-relasi diimplementasikan dengan bantuan","Foreign key","Tuple","Encapsulation","Authorization","Tokenization"
+"Set nilai-nilai yang mungkin di-assign pada suatu atribut adalah","Domain","Column","Tuple","Cardinality","Relationship"
+"Pada model relasional terdapat beberapa integrity constraint. Constraint tersebut adalah required data, domain constraints, entity integrity, referential integrity, dan general constraints. Beberapa constraint tersebut dapat didefinisikan pada statement","CREATE dan ALTER","CREATE dan SET","CREATE dan CASCADE","SET dan ALTER","CASCADE dan ALTER"
+"Pada saat megimplementasikan tabel, terdapat klausa FOREIGN KEY. Pada klausa FOREIGN KEY terdapat referential action ON DELETE. Opsi yang dapat ditambahkan pada ON DELETE adalah sebagai berikut, kecuali","RESTRICT","CASCADE","SET NULL","SET DEFAULT","NO ACTION"
+"Hubungan antara primary key dan candidate key pada tabel relasional adalah","Primary key merupakan candidate key yang dipilih untuk mengidentifikasi tuple secara unik dalam relasi","Candidate key merupakan primary key yang dipilih untuk mengidentifikasi tuple secara unik dalam relasi","Primary key merupakan gabungan candidate key yang dipilih untuk mengidentifikasi tuple secara unik dalam relasi","Candidate key merupakan gabungan primary key yang dipilih untuk menjadi inter key","Primary key merupakan gabungan candidate key yang dipilih untuk menjadi composite key"
+"Berikut merupakan statement yang valid dalam SQL Data Definition Language, kecuali","ALTER DOMAIN dan SET TABLE","ALTER TABLE dan DROP DOMAIN","DROP SCHEMA dan CREATE DOMAIN","CREATE VIEW dan ALTER DOMAIN","DROP VIEW dan DROP TABLE"
+"Privileges merupakan aksi-aksi yang diijinkan untuk dilakukan user pada tabel atau view. Beberapa privilege yang didefinisikan oleh standar ISO pada SQL adalah sebagai berikut, kecuali","CHANGE","INSERT","DELETE","REFERENCES","USAGE"
+"Statement untuk pengontrolan akses yang disupport oleh SQL adalah","GRANT dan REVOKE","GRANT dan RESET","INVOKE dan RESET","RESET dan REVOKE","INVOKE dan REVOKE"
+"Data steward bisnis yang memiliki otoritas untuk keputusan-keputusan tentang data yang berada dalam domainnya, merupakan pengertian dari","Data Owner","Data Cleaner","Data Developer","Data Auditor","Data Accelerator "
+"Data modeling dan standard desain database menjadi pedoman yang penting untuk menjawab keperluan data pada suatu bisnis. Data modeling dan standard desain database sesuai dengan Enterprise dan Data Architecture. Data modeling dan standard desain database juga menjaga kualitas data. Yang menyusun standard desain database adalah","Semua benar","Data architect","Data analysts","Database administrator","Semua salah"
+"Prosedur dan requirements keamanan data dikategorikan ke dalam 4 grup. Grup tersebut adalah di bawah ini kecuali","Amendment","Audit","Access","Authentication","Authorization"
+"Klausa yang memungkinkan user yang menerima privilege dapat memberikan lagi privilege ke user lain pada SQL adalah","WITH GRANT OPTION","WITH GRANT ENABLE","WITH GRANT ESCALATION","WITH GRANT AUTHORIZATION","WITH GRANT EXECUTION"
+"SQL menyediakan fasilitas untuk menentukan owner dari object. Klausa yang digunakan untuk menentukan owner pada statement CREATE SCHEMA adalah","AUTHORIZATION","AUTHENTICATION","OWNER","ADMINISTRATION","BELONGS TO"
+"Suatu privilege memungkinkan untuk dilakukan pembatasan hanya pada kolom-kolom tertentu. Kolom-kolom tersebut dapat direfer dalam constraints, seperti foreign key constraints, ketika membuat tabel yang lain. Pada SQL, privilege tersebut adalah","REFERENCES","LOOKUP","INSIGHTS","REFERS","CHECKS"
+"Pengkategorian yang kurang tepat, format data tidak konsisten, dan adanya duplikat, dapat mempersulit dan memperlambat proses pencarian data. solusi yang efektif adalah …","Buat rencana secara detail sejak awal. Fokus membangun sistem struktur dasar terlebih dahulu untuk memudahkan dalam menemukan, mengakses, dan menganalisis data di kemudian hari.","Jika pengunjung Anda mayoritas dari Indonesia, sebaiknya pilih server yang berlokasi di Indonesia. Jika servernya di Amerika, bisa saja berakibat pada proses loading yang tak berkesudahan hingga adanya pesan error.","File gambar yang besar akan memakan banyak bandwidth dan membebani server. Ketika pengunjung mengakses konten berisi berbagai gambar berukuran besar, proses loading akan menjadi lama.","Mengurangi konten flash karena ukuran dari file flash cenderung besar sehingga akan memakan resource server Anda.","Menggunakan aplikasi terbaru, karena melewatkan fitur terbaru berarti pengelolaan konten menjadi kurang optimal."
+"Data berasal dari berbagai sumber dan administrator. Kemajemukan ini menciptakan tumpukan data dengan bermacam tipe yang memiliki standarnya sendiri, yang dapat berdampak pada integritas data. solusi yang efektif adalah …","Otomatisasi, karena manusia pada dasarnya rentan terhadap kesalahan. Mengelola data yang akurat dan terstandardisasi adalah upaya yang rumit, otomatisasi data dapat merevolusi cara kita mengelola data jadi lebih rapi dan terstruktur.","Menggunakan tenaga manusia agar mengelola data yang rumit dapat standar dan akurat dengan bantuan tenaga manusia yang sudah berpengalaman.","Menggunakan sistem-sitem yang berbeda dan menggunakan aplikasi penerjemah untuk saling menghubungkan antar sistem.","Menggunakan sistem yang masih konvensional seperti menggunakan kertas dan pencatatan manual agar data tidak tercecer dan rusak setelah sekian waktu.","Menggunakan tempat penyimpanan yang berbeda agar tidak terjadi masalah dilain hari."
+"Perusahaan menghadapi tantangan utama ketika data harus dikumpulkan dari variasi sistem manajemen database dengan kompatibilitas operasional yang berbeda. Kesenjangan ini akan menimbulkan masalah dalam penarikan data. solusi yang efektif adalah …","Gunakan penerjemah antar sistem. Gunakan aplikasi pendamping yang dapat terhubung dengan koneksi multi-database dan platform dengan operasi multi-sistem.","Menggunakan tenaga manusia untuk memantau dan menyalin data-data yang diperlukan dari berbagai sistem dengan bantuan tenaga manusia yang sudah berpengalaman.","Kita bisa menyimpan semua data SDM yang diperlukan hanya dengan bantuan koneksi internet. Sehingga kita tidak perlu kerepotan menyimpan data di dalam komputer.","Manggunakan tampilan sistem yang user friendly agar pengguna tidak  dibebani  untuk  mempelajari  sistem  tetapi  dapat  fokus  pada  pelaksanaan pekerjaannya.","Sistem  informasi  harus  mempertimbangkan  aspek  keamanan  informasi  yang akan dikelola (diakuisisi, disimpan, diolah, atau ditransfer ) oleh sistem tersebut."
+"Volume data yang bisa jadi sangat besar akan menyulitkan dalam mencari data tertentu di dalam tumpukan data. solusi yang efektif adalah …","Gunakan aplikasi yang akan memudahkan mencari objek dan relasi data dengan fitur keyword search yang dapat menghasilkan pemetaan antar objek pada sebuah database.","Mengurangi konten flash karena ukuran dari file flash cenderung besar sehingga akan memakan resource server Anda.","Menggunakan aplikasi terbaru, karena melewatkan fitur terbaru berarti pengelolaan konten menjadi kurang optimal.","File gambar yang besar akan memakan banyak bandwidth dan membebani server. Ketika pengunjung mengakses konten berisi berbagai gambar berukuran besar, proses loading akan menjadi lama.","Menggunakan tenaga manusia untuk memantau dan menyalin data-data yang diperlukan dari berbagai sistem dengan bantuan tenaga manusia yang sudah berpengalaman."
+"Integritas adalah aspek penting lain dari keamanan database. Kewenangan administrator yang tak terbatas dalam mengubah data akan mengurangi integritas database. Banyaknya jumlah pemegang akses ke penyimpanan data tentunya akan mempersulit pengawasan aktivitas login, yang nantinya rentan terhadap cyber attack. solusi yang efektif adalah …","Batasi sistem keamanan dengan kontrol akses. Kelola akses database dengan mekanisme ticketing, yang membuat pengajuan hak akses admin harus melalui proses approval dari tingkat manajemen yang lebih tinggi seperti manajer IT.","pastikan bahwa hanya orang terpercaya yang dapat melihat informasi. Gunakan sistem Kontrol Akses Pengguna yang menentukan izin siapa yang dapat mengakses data tersebut.","Mengelola etika dan moralitas sumberdaya manusia yang mengendalikan sistem informasi harus memiliki integritas, jujur dan terpercaya.","Melakukan pertambahan jumlah personil, pertambahan unitolisi, pemekaran wilayah, dinamika politik, dan sebagainya.","Sistem harus dipastikan bekerja dengan baik pada saat diperlukan"
+"IDEA adalah salah satu dari sekian banyak cara dalam problem solving technique dan dapat diaplikasikan dalam berbagai bidang. Kepanjangan dari IDEA adalah …","Identification, Development, Execute, Asses","Identification, Dedication, Execute, Asses","Identification, Dedication, external, Asses","Identification, Development, external, Asses","Identification, Development, Execute, Affiliation"
+"Ada banyak metode untuk mengetahui akar penyebab dari masalah yang muncul sebelum mencari solusi diantaranya berupa diagram, diagram yang dimaksud adalah ... ","Diagram Fishbone","Diagram Pencar","Diagram Batang","Diagram Garis","Diagram Lingkaran"
+"Berikut beberapa langkah-langkah dalam mencari solusi alternatif, yang paling tepat adalah","Pastikan untuk tidak terburu-buru dalam menentukan suatu solusi alternatif, Sertakan semua individu yang terlibat dalam menentukan solusi alternatif yang terbaik","Pastikan untuk tidak menyelesaikan sebuah permasalahan tanpa data-data yang valid, Coba identifikasi standar, norma-norma atau nilai-nilai apa saja yang telah dilanggar dari permasalahan ini.","Coba identifikasi standar, norma-norma atau nilai-nilai apa saja yang telah dilanggar dari permasalahan ini, Dalam hal ini, kita juga perlu menyatakan atau mengungkapkan permasalahan yang terjadi secara spesifik. ","Perlu menetapkan langkah-langkah dan pemantauan secara berkelanjutan, kita perlu terus mengevaluasi hasil jangka panjang","Perlu menetapkan langkah-langkah dan pemantauan secara berkelanjutan, Coba identifikasi standar, norma-norma atau nilai-nilai apa saja yang telah dilanggar dari permasalahan ini. "
+"Pengumpulan kebutuhan instansi terkait informasi yang akan digunakan untuk menunjang kegiatan atau program kerja instansi dapat dilakukan dengan metode/cara sebagai berikut, kecuali:","Sampling","Wawancara","Kuesioner","Observasi","  Studi Referensi"
+"Pengumpulan informasi dapat dilakukan dengan cara interview/wawancara. Ada beberapa macam wawancara antara lain:","Wawancara terstruktur","Wawancara terbuka","Wawancara tersamar","Wawancara terus terang","Wawancara partisipatif"
+"Ada beberapa jenis data. Salah satu jenis data berdasarkan sumber:","Data primer dan data sekunder","Data kuantitatif dan data kualitatif","Data observasional","Data wawancara
+","Data eksperimental"
+"Berikut adalah sumber informasi yang berupa dokumen kecuali : ","Tokoh dalam cerita fiksi","Film","Ensiklopedia","Kamus","Jurnal"
+"Dari hal-hal berikut, yang merupakan sumber informasi adalah:","Benda","Katalog perpustakaan","Google","Yahoo","Jasa pemberian informasi"
+"Proses pengumpulan data terdiri dari beberapa tahap. Tahap yang pertama adalah:","TInjauan literatur dan konsultasi dengan ahli","Uji coba atau pilot study","Merumuskan dan menyusun pertanyaan","Mencatat dan memberi kode","Cross checking, validitas, reliabilitas"
+"Melakukan pengumpulan kebutuhan informasi adalah kegiatan pengumpulan kebutuhan instansi terkait informasi yang akan digunakan untuk menunjang kegiatan atau program kerja instansi. Konteks informasi dalam kegiatan ini meliputi:","Kebutuhan informasi untuk requirements pengembangan aplikasi, informasi yang dibutuhkan dalam rangka kegiatan Enterprise Architecture, Informasi untuk menyusun strategi bisnis instansi, dan sebagainya.","Informasi untuk menyusun strategi bisnis instansi","Informasi yang dibutuhkan dalam rangka kegiatan Enterprise Architecture di suatu instansi","Informasi mengenai spesifikasi hardware yang dibutuuhkan untuk mengembangkan aplikasi di suatu instansi","Informasi untuk menyusun strategi bisnis dan kegiatan Enterprise Architecture  instansi"
+"Pemilihan teknik pengumpulan data yang sesuai kebutuhan ditentukan oleh:","Jenis informasi, kedalaman informasi, keluasan informasi, integrasi informasi, keterlibatan user, dan biaya","Jenis informasi, kedalaman informasi, keluasan informasi, keterlibatan user, dan biaya","Jenis informasi, kedalaman informasi, dan keluasan informasi","Jenis informasi, kedalaman informasi, keluasan informasi, dan biaya","Jenis informasi, kedalaman informasi, keluasan informasi, dan keterlibatan user"
+"Dokumen evaluasi hasil pengujian prosedur validasi kebutuhan informasi mencakup:
+1. Nama kegiatan terkait
+2. Hasil pengujian yang sudah dilakukan
+3. Hasil evaluasi dan dokumentasi terhadap hasil pengujian prosedur validasi kebutuhan informasi
+Di antara jawaban berikut, yang paling tepat adalah:","1, 2, 3 benar
+","1 dan 2 benar
+","1 dan 3 benar
+","2 dan 3 benar
+","3 benar
+"
+"Seorang Pranata Komputer Ahli Pertama melakukan evaluasi hasil pengujian terhadap prosedur validasi kebutuhan informasi sebanyak 20 kali dalam satu tahun. Maka angka kredit yang dia peroleh:
+","2,160
+","3,60","2,70","1,08","1,728
+"
+"Pernyataan berikut yang bukan merupakan pengertian evaluasi adalah:","Proses rutin pengumpulan data dan pengukuran kemajuan atas objektif program. Proses yang memantau perubahan, yang fokus pada proses dan keluaran.","Kegiatan yang dilakukan berkenaan dengan proses untuk menentukan nilai dari suatu hal. ","Kegiatan atau aktivitas untuk menilai sesuatu secara terencana, sistematik, serta juga terarah dengan berdasarkan tujuan yang jelas.","Suatu usaha atau proses di dalam menentukan nilai-nilai. Dapat juga diartikan sebagai proses pemberian nilai dengan berdasarkan data kuantitatif hasil pengukuran untuk keperluan pengambilan keputusan.","Suatu proses merencanakan, memperoleh, serta juga menyediakan informasi yang sangat diperlukan untuk dapat membuat alternatif-alternatif keputusan."
+"Dalam mengadakan sebuah proses evaluasi, terdapat beberapa hal yang akan dibahas yaitu
+1. Apa yang menjadi bahan evaluasi
+2. Bagaimana proses evaluasi
+3. Kapan evaluasi diadakan
+4. Mengapa perlu diadakan evaluasi
+5. Di mana proses evaluasi diadakan
+6. Pihak yang mengadakan evaluasi
+Berdasarkan pernyataan di atas, di antara jawaban berikut yang paling tepat adalah:","1 s.d 6 benar","1, 2, 3, 6 benar","1, 2, 4, 6 benar","1, 2, 3, 5, 6 benar","1, 2, 4, 5, 6 benar"
+"Tujuan yang paling tepat dari evaluasi hasil pengujian prosedur validasi kebutuhan informasi adalah:","Untuk mengukur tingkat efisiensi dan efektivitas sebuah media, metode, atau sumber daya lainnya dalam pelaksanaan sebuah kegiatan.","Untuk mengetahui tingkat penguasaan seseorang terhadap kompetensi yang sudah ditetapkan berdasarkan standar dan kebutuhan organisasi.","Untuk mengetahui posisi terbaik untuk seseorang sesuai kapabilitas dan kapasitas yang dimilikinya. ","Untuk menyeleksi seseorang sesuai dengan standar yang telah ditetapkan sebelumnya. ","Untuk mengetahui kelebihan dan kekurangan sesorang dalam bidang kompetensi tertentu. "
+"Aktivitas evaluasi memiliki beberapa fungsi yang bermanfaat bagi para pihak yang melakukan evaluasi. Fungsi dari evaluasi yang paling sesuai dengan kegiatan Melakukan Evaluasi Hasil Pengujian Prosedur Validasi Kebutuhan Informasi adalah:","Fungsi Pengukuran Keberhasilan","Fungsi Penempatan","Fungsi Diagnosa","Fungsi Selektif","Fungsi Formatif"
+"Evaluasi dikelompokkan dalam beberapa jenis. Salah satu jenis evaluasi yang dikelompokkan berdasarkan waktu pelaksanaan adalah:","Evaluasi Formatif ","Evaluasi Formulasi ","Evaluasi Proses","Evaluasi Biaya ","Evaluasi Dampak "
+"Dalam suatu kegiatan evaluasi terdapat beberapa tahapan penting yang saling mendukung satu sama lain. Adapun tahapan terakhir dari suatu kegiatan evaluasi adalah:","Pelaporan hasil evaluasi ","Menentukan topik evaluasi ","Merancang kegiatan evaluasi ","Pengumpulan data","Pengolahan dan analisis data"
+"Service validation and testing merupakan proses:
+","Service transition","Service operation","Service design","Service strategy","Service delivery "
+"Tujuan dari validasi informasi:","Untuk memastikan bahwa informasi dan pengetahuan yang didapat tidak hanya benar, namun juga utuh atau tidak sepotong-potong, serta tidak menyesatkan atau sesuai konteksnya","Untuk memastikan bahwa informasi dan pengetahuan yang didapat benar","Untuk memastikan bahwa informasi dan pengetahuan yang didapat tidak sepotong-potong","Untuk memastikan bahwa informasi dan pengetahuan yang didapat tidak menyesatkan","Untuk memastikan bahwa informasi dan pengetahuan yang didapat sesuai konteksnya"
+"Metode validasi data yang digunakan untuk membantu mengurangi kesalahan dalam bidang dengan daftar nilai yang terbatas, sebagai contoh fakta bahwa hanya ada 12 bulan dalam satu tahun yang memastikan bahwa daftar nilai yang mungkin terbatas adalah:
+","Pencarian (Lookup)","Pemeriksaan format","Pemeriksaan tipe","Dengan mendefinisikan tipe data sebagai angka","Pemeriksaan digit"
+"Yang bukan merupakan contoh validasi:","Pemeriksaan KTP direktur, NPWP perusahaan, SIUP, dan berkas lainnya dalam pendaftaran lelang pengadaan barang dan jasa di suatu instansi pemerintah","Pengukuran kemampuan siswa dalam matematika. Dalam mengukur kemampuan siswa mengenai pelajaran matematika, kemudian dengan diberikan soal bersifat kalimat panjang begitu berbelit-belit. Hal itu bertujuan untuk memberikan kesukaran untuk menangkap maknanya, hasil akhirnya, siswa tidak dapat menjawab, akibat tidak memahami per-tanyaannya.","Pengukuran  prestasi belajar. Contoh variabel prestasi belajar dan motivasi bisa diukur dengan tes ataupun dengan kuesioner.","Untuk menguji keabsahan data terkait pemanfaatan Dana Desa di Kampung Sukamaju yang telah terkumpul maka peneliti menggunakan teknik triangulasi sumber dengan langkah yang dipergunakan adalah mengecek, membandingkan informasi yang diperoleh, serta melakukan analysis melalui sumber yang berbeda.","Pengecekan derajat kepercayaan penemuan akan pemanfaatan Dana Desa di Kampung Sukamaju menemukan hasil penelitian dengan beberapa teknik pengumpulan data yaitu mayoritas di pergunakan untuk membangun infrastruktur berupa Jalan Desa."
+"Berikut adalah jenis-jenis validasi data penelitian, kecuali","Inspeksi","Prediktif","Konstruk","Eksternal","Isi"
+"Pernyataan yang tidak membawa pengertian mengenai validasi:","Pemeriksaan tentang kebenaran laporan, pernyataan, perhitungan uang dan lain sebagainya.","Suatu tindakan pembuktian, artinya tindakan yang merupakan suatu pekerjaan “dokumentasi”.","Tata cara atau metode pembuktian harus dengan “cara yang sesuai”, artinya proses pembuktian tersebut ada tata cara atau metodenya, sesuai dengan prosedur yang tercantum dalam SOP.","“Obyek” pembuktian adalah tiap-tiap bahan, proses, prosedur, kegiatan, sistem, perlengkapan atau mekanisme yang digunakan dalam produksi dan pengawasan mutu (ruang lingkup).","Bahwa seluruh obyek pengujian akan senantiasa mencapai hasil yang diinginkan secara terus menerus (konsisten)."
+"Salah satu manfaat validasi data:","Peningkatan akurasi karena mengurangi risiko kesalahan atau kekeliruan dari eror dalam data","Peningkatan produktivitas karena memastikan kita mendapatkan hasil penelitian terbaik","Memungkinkan untuk mengurangi biaya pada saat penelitian dijalankan","Hasil kajian yang dilakukan dapat lebih baik berdasarkan kapasitas seorang peneliti","Membantu dalam pengambilan keputusan suatu kebijakan, misalnya membatasi pertumbuhan penjualan dan keuntungan
+"
+"Yang bukan merupakan metode validasi data:","Entri ganda","Pemeriksaan tipe","Pemeriksaan panjang","Pemeriksaan format","Pencarian (Lookup)"
+"Dalam melakukan perancangan basis data, salah satu manfaat dari perancangan database adalah mampu melihat bagaimana data dalam sebuah sistem database dalam tingkatan/level tertentu. Hal ini disebut dengan:","Abstraksi data","Taksonomi data","Hirarki data","Klasifikasi data","Arsitektur Data"
+"Dalam perancangan DBMS, salah satu bagian fundamental yang harus disusun ialah data catalog. Dari rincian berikut, mana yang termasuk manfaat dari adanya data catalog antara lain:
+1. Mudah dalam mengidentifikasi redundansi dan inkonsistensi data
+2. Menghemat efisiensi memori data
+3. Memastikan integrasi data
+4. Memudahkan dalam melakukan backup dan recovery data","1 dan 3","1, 2, 3, 4","1, dan 2","2 dan 4","3 dan 4"
+"Perancangan basis data membutuhkan komponen-komponen penyusun basis data, salah satunya ialah Record. Yang termasuk kedalam pengertian Record yang benar ialah:","Kumpulan beberapa field dalam satu basis data","Kumpulan beberapa karakter dalam satu basis data","Kumpulan file yang menggambarkan satu kesatuan dalam satu basis data","Kumpulan basis data yang tersusun dan saling berinteraksi","Bagian terkecil yang menyusun satu basis data"
+"Salah satu pendekatan dalam membangun rancangan basis data ialah bottom-up, dari pernyataan berikut yang termasuk kedalam karakteristik pendekatan bottom-up ialah:
+1. Cocok digunakan bagi basis data yang memiliki relasi yang cukup sederhana dan memiliki atribute data yang sedikit
+2. Dibutuhkan normalisasi untuk mengidentifikasi relasi dan atribut data
+3. Diilustrasikan menggunakan konsep Entity Relation Model
+4. Tangguh dalam melakukan perancangan basis data yang cukup kompleks","1 dan 2","1 dan 3","2 dan 3","3 dan 4","2 dan 4"
+"Sebutkan urutan tahapan dalam perancangan basis data menggunakan System Development Lifecycle (SDLC) yang benar:
+1. Requirements
+collection and analysis
+2. Database Planning 
+3. System Definition
+4. Database Design
+5. Application Design
+6. DBMS Selection
+7. Prototyping
+8. Implementation
+9. Data Conversion and Loading
+10. Testing
+11. Operational Maintenance","2-3-1-4-5-6-7-8-9-10-11","1-2-3-4-5-6-7-8-9-10-11","2-1-3-4-5-6-7-8-9-10-11","2-4-1-3-5-6-7-8-9-10-11","1-2-3-4-5-6-7-8-10-9-11"
+"Diagram yang memberikan struktur logis dari database secara grafis ialah","Entity Relationship Diagram","Data Flow Diagram","Entity Diagram","Architecture Representation","Database Diagram"
+"Himpunan entitas yang tidak memiliki atribut yang memadai untuk menjadi sebuah primary key disebut","Weak Entity Set","Strong Entity Set","Strong Variable Set","Weak Record Set","Variant Set"
+"Yang termasuk kedalam karakteristik media penyimpanan data SASD (Sequential Access Storage Device) ialah","Tidak dilakukan pengalamatan","Penulisan alamat dapat dilakukan berulang kali","Data dapat disimpan dalam bentuk karakter","Pembacaan tidak harus urut","Data dapat disimpan dalam bentuk blok"
+"Salah satu pentingnya melakukan backup data ialah untuk meminimalkan dampak dari adanya Kegagalan Sistem (System Failure). Yang termasuk ke dalam penyebab System Failure ialah:","Transaction Failure, System Crash, Disk Failure","Transaction Failure, Boot Crash, Read Failure","Transaction Crash, System Crash, Data Failure","Transaction Failure, Data Failure, Network Failure","Transaction Crash, Data Error, Connection Error"
+"Dari rincian berikut yang termasuk ke dalam karakteristik volatile storage
+1. Tidak dapat bertahan saat terjadi kerusakan sistem
+2. Letaknya berdekatan dengan CPU
+3. Memiliki kapasistas storage yang besar
+4. Lambat dalam melakukan pengaksesan","1 dan 2","1 dan 3","2 dan 3","2 dan 4","1 dan 4"
+"Strategi Backup Data yang dilakukan untuk menduplikasi hanya data baru dan data yang mengalami perubahan disebut dengan","Differential Backup","Full Backup","Incremental Backup","Continous Backup","Snapshot Backup"
+"Fasilitas yang sangat dibutuhkan dari suatu sistem basis data dalam melakukan recovery data ialah
+1. Backup Mechanisme
+2. Logging Facilities
+3. Concurency Checking
+4. Transaction Loading","1 dan 2","1 dan 3","2 dan 3","2 dan 4","1 dan 4"
+"Kesalahan yang sering terjadi saat melakukan backup data antara lain:
+1. Tidak melakukan backup data
+2. Melakukan backup data di tempat yang berbeda
+3. Melakukan pengujian backup data
+4. Tidak menjalankan backup secara teratur
+5. Tidak melakukan pelabelan data","1, 4 dan 5","1, 2, 3, dan 4","3 dan 4","2 dan 5","Hanya 1"
+"Dari rincial berikut 
+1. Menentukan apa yang perlu di-backup 
+2. Menentukan file backup yang sesuai dengan data
+3. Menetapkan size pencadangan (backup)
+4. Menentukan tujuan backup data
+Hal-hal yang harus diperhatikan terlebih dahulu dalam melakukan manajemen backup data ialah
+","1 dan 4","1 dan 2","2 dan 3","1 dan 3","2 dan 4"
+"Proses backup database yang dilakukan saat database sedang aktif dan berjalan disebut ...","Hot Backup","Cold Backup","Logical Backup","Static Backup","Remote Backup"
+"Tujuan dari pembuatan model integritas data dalam suatu organisasi ialah","Mencegah user melakukan perubahan yang tidak benar atau tidak terotorisasi","Memberikan hak akses kepada user","Meminimalisir akses data","Menjaga keutuhan data","Mengefisiensi memori dan bandwith"
+"Yang termasuk kedalam prinsip dasar pengendalian integritas data antara lain:
+1. Memberikan akses dalam kerangka need-to-know basis
+2. Pemisahan tugas (separation of duties)
+3. Pemeliharaan data
+4. Sentraliasi akses","1 dan 2","2 dan 3","1 dan 3","1 dan 4","2 dan 4"
+"Yang termasuk kedalam tipe umum autentikasi ialah:
+1. What you know? (Password, Pin, dsb)
+2. What you have? (Smart card, token device)
+3. What you are? (Biometric)
+4. Where you are? (GPS)","1, 2, dan 3","1, 2, 3, dan 4","1, dan 3","2, dan 4","4"
+"Setiap elemen data paling tidak terbagi ke dalam tiga pihak yang bertanggung jawab dengan level tanggung jawabnya masing-masing yaitu:","Data Owner, Data Custodian, Data User","Data Owner, Data Monitoring, Data User","Data Creator, Data Accessor, Data Analysis","Data Creator, Data Custordian, Data Analysis","Data Owner, Data Accessor, Data User"
+"Salah satu jenis rancangan kontrol akses yang memberikan pengguna akses berdasarkan tingkat kerahasian data (Confidentiality) dan tingkat izin pengguna, disebut","Mandatory Access Control","Directional Access Control","Non-discreationary Access Control","Lattice-based Access Control","Role-based Access Control"
+"Urutan yang benar mulai dari terendah sampai tertinggi sesuai dengan tingkat kerahasiaan data berdasarkan Military Data Classification adalah
+1. Top Secret
+2. Secret
+3. Sensitive but Unclassified (SBU)
+4. Unclassified
+5. Confidential","4, 3, 5, 2, 1","1, 2, 3, 4, 5","1, 3, 5, 2, 4","3, 4, 5, 2, 1","5, 4, 3, 2, 1"
+"Directional Access Control merupakan salah satu rancangan kontrol akses yang memiliki beberapa kelemahan antara lain:
+1. Tingkat perlindungan data rendah
+2. Tidak mudah untuk dilakukan skalabilitas
+3. Sulit untuk dikelola
+4. Pengelolaan akses tidak jelas dan tidak terpusat","1 dan 4","1 dan 2","3 dan 4","1 dan 3","2 dan 4"
+"Berikut yang merupakan standar protokol autentikasi terbuka yang telah banyak diimplementasikan dalam mengatur akses pengguna, adalah","Json Web Token (JWT) dan Security Assertion Markup Language (SAML)","OAuth 2.0 dan Universally Unique Identifier (UUID)","Universally Unique Identifier (UUID) dan Lightweight Directory Access Protocol (LDAP)","OpenID Connect (OIDC) dan Hypertext Transfer Protocol (HTTP)","CRAM-MD5 dan Secure Sockets Layer (SSL)"
+"Tool apa yang tidak dapat digunakan untuk membuat maupun mengupgrade database ?","Oracle Enterprise Manager Database Control","Database Configuration Assistant","Database Upgrade Assistant","SQL*Plus","Oracle Universal Installer"
+"Apa yang akan terjadi jika Anda tidak menjalankan skrip CATALOG.SQL dan CATPROC.SQL setelah membuat database?","Tidak mungkin untuk meng-query tampilan kamus data.","Tidak mungkin membuka database.","Tidak mungkin membuat tabel pengguna apa pun.","Tidak mungkin menggunakan PL / SQL.","Tidak mungkin untuk terhubung sebagai pengguna selain SYS dan SYSTEM."
+"Manakah tool berikut ini yang merupakan komponen SQL Server yang menyediakan layanan untuk membuat, memproses, dan mengelola OLAP dan data mining?","Analysis Services","Business Intelligence Developer Studio","SQL Server Management Studio","Windows PowerShell 2.0","SQL Server Database Engine"
+"Berikut ini tool SQL Server yang digunakan untuk memeriksa bahwa layanan komponen SQL Server sedang berjalan adalah...","SQL Server Configuration Manager","SQL Server Management Studio (SSMS)","Business Intelligence Development Studio (BIDS)","SQL Server Profiler","Database Engine Tuning Advisor"
+"Jenis file apa yang berisi objek data dan database seperti tabel dan indeks?","Data files","Log files","File groups","Binary files","Summary.txt"
+"Administrator keamanan Anda telah menentukan bahwa semua Server SQL di organisasi Anda perlu mendengarkan pada port TCP non-default, dan dia tidak ingin pengguna jaringan melihat Server SQL dalam daftar penjelajahan. Tindakan manakah yang paling tepat?","Menghentikan dan menonaktifkan layanan browser di setiap SQL Server","Gunakan Pengelola Konfigurasi di setiap server untuk mengubah setiap instance pada port 50000","Gunakan Pengelola Konfigurasi di setiap server untuk mengubah setiap instance untuk mendengarkan port yang sama","Konfigurasi Layanan Browser SQL untuk menyembunyikan setiap instance","Aktifkan Show Advanced Options menggunakan sp_configure dan gunakan opsi Default TCP port untuk mengkonfigurasi port untuk setiap instance"
+"Bulan lalu perusahaan Anda melakukan latihan untuk menstandarkan akun layanan saat Anda sedang berlibur. Anda baru saja me-restart ulang SQL Server setelah menerapkan paket layanan, dan sekarang instance tidak dapat dimulai. Anda memeriksa Windows Event Log dan melihat banyak kesalahan dan Anda tidak dapat membuka log kesalahan tersebut. Apa penyebab yang paling mungkin?","Akun Layanan SQL Server tidak diubah menggunakan SQL Server Configuration Manager","Paket layanan gagal","Kerusakan data","Anda tidak memiliki izin yang tepat ke log kesalahan","Log kealahan terkunci dari semua akun"
+"Seorang pengguna bisnis baru saja menelepon untuk mengatakan bahwa datanya tidak diperbarui dalam semalam. Anda memeriksa SQL Server dan melihat bahwa pekerjaan Agen Server SQL yang menjalankan beban data gagal tadi malam. Anda ingin diberi tahu secara otomatis melalui email jika itu terjadi lagi. Manakah dari opsi berikut yang akan memberikan solusi yang paling efisien dan didukung?","Menerapkan Database Mail","Menerapkan SQLMail","Instal mailer SMTP pihak ketiga","Menerapkan Service Broker","Membuat scheduler"
+"Suatu desain database harus memenuhi kondisi tidak mengandung anomali, yaitu suatu kejanggalan dari suatu penempatan atribut tertentu dari suatu objek data. Salah satu anomali yang terjadi ketika kita mengubah data pada sebuah record dan berpengaruh terhadap perubahan record yang lain dinamakan ...","Update anomaly","Deletion anomaly","Reuse anomaly","Creation anomaly","Insertion anomaly"
+"Anomali pada tabel berikut muncul karena telah menyatukan 2 entitas dalam satu relasi. Anomali yang terjadi ketika kita memodifikasi data tersebut adalah …
+link gambar: https://drive.google.com/file/d/1PLNS1hrf_LhsjsfURXk3txQxpR7JVLov/view?usp=sharing
+","Tidak dapat menambahkan data karyawan baru yang tidak mengambil kursus","Jika pegawai 200 dihapus maka akan kehilangan informasi tentang keberadaan kursus Audit","Menaikan gaji pegawai 100 tidak mengharuskan kita untuk meng-update record lain","Jika pegawai 200 dihapus maka akan kehilangan informasi tentang waktu selesai kursus Audit","Tidak ada anomali pada tabel tersebut"
+"Kondisi ketika kita akan menambahkan data tentang satu entitas,tetapi kita juga diharuskan memasukkan data tentang entitas lain merupakan anomali yang disebut dengan ...","Insertion anomaly","Reuse anomaly","Creation anomaly","Update anomaly","Deletion anomaly"
+"link gambar: https://drive.google.com/file/d/1tX7zpiQEBXDST8l87_53zJkBfQ5wY6cI/view?usp=sharing
+Gambar tersebut menunjukkan proses normalisasi menjadi …","1NF","2NF","4NF","BCNF","3NF"
+"Tujuan dari bentuk normal kesatu (1NF) adalah sebagai berikut, kecuali …","Atribut yang bukan key sudah tergantung penuh terhadap key-nya","Membuang adanya pengulangan (redudansi) data","Menghindari adanya pencatatan null value","Setiap baris dan kolom berisi satu nilai","Repeating group sudah hilang"
+"Dalam teori normalisasi database, sebuah relasi yang tidak ketergantungan bergabung adalah bentuk normal yang disebut.....","5NF","2NF","4NF","1NF","3NF"
+"Sifat ketergantungan banyak nilai (multivalued dependecy) pada suatu tabel merupakan keterkaitan dengan bentuk normal ke .....","4NF","2NF","1NF","3NF","BCNF"
+"Semua atribut selain primary key, secara utuh memiliki Functional Dependency pada primary key, merupakan ciri dari","2NF","4NF","1NF","3NF","BCNF"
+"Jika foreign key terdapat di relasi maka nilai foreign key harus cocok pada nilai candidate key suatu tupel di relasi asal (home relation) atau nilai foreign key seluruhnya Null adalah pengertian dari …","Integritas referensial","Integritas domain"," Integritas entitas ","Integritas enterprise","Integritas perusahaan"
+"Manakah dari perintah berikut yang digunakan dengan pernyataan Data Control Language (DCL)?","GRANT","SELECT","DELETE","INSERT","UPDATE"
+"DCL memberikan perintah untuk melakukan aksi berikut …","Memberi pengaturan akses database","Mendefinisikan struktur data dari tabel","INSERT, UPDATE, atau DELETE suatu record atau data value","Mengubah struktur tabel","Melakukan perintah-perintah yang berhubungan dengan CREATE, INSERT, dan SELECT"
+"Manakah perintah di bawah ini yang merupakan bentuk dasar dari perintah GRANT?","GRANT 'privilege list'
+ON 'relation name or view name'
+TO 'user/role list';","GRANT 'privilege list'
+   ON 'user/role list'
+   TO 'relation name or view name';","GRANT 'privilege list'
+   TO 'user/role list'","GRANT 'privilege list'
+   ON 'relation name or view name'
+   ON 'user/role list';","GRANT 'privilege list'
+TO 'relation name or view name'
+TO 'user/role list';"
+"Manakah dari pernyataan berikut ini yang digunakan untuk memberikan privilege hanya pada suatu atribut tertentu?","Grant update(budget) on department to Raj","Grant select on employee to Amit","Grant update(budget,salary,Rate) on department to Raj","Grant delete to Amit","Grant insert on employee to Amit"
+"Manakah dari pernyataan berikut yang digunakan untuk menghapus privilege dari Amir?","REVOKE UPDATE ON `employee` FROM `Amir`","REMOVE UPDATE ON `department` FROM `Amir`","DELETE SELECT ON `department` FROM `Raj`","GRANT UPDATE ON `employee` FROM `Amir`","GRANT UPDATE ON `employee` TO `Amir`"
+"Manakah dari berikut ini yang digunakan untuk memberikan otorisasi penghapusan kepada instructor?","CREATE ROLE instructor;
+GRANT DELETE ON takes
+TO instructor;","CREATE ROLE instructor ;
+GRANT DELETE TO instructor;","CREATE ROLE instructor;
+GRANT SELECT ON takes
+TO instructor;","CREATE ROLE instructor;
+GRANT SELECT ON takes
+ON instructor;","CREATE ROLE instructor;
+GRANT INSERT ON takes
+TO instructor;"
+"Manakah dari pernyataan berikut yang benar tentang views?","Jika pengguna membuat view yang tidak dapat diberikan otorisasi, sistem akan mengizinkan request dari pembuat view","Pengguna yang membuat view tidak dapat diberikan otorisasi UPDATE pada view tanpa otorisasi UPDATE pada relasi yang digunakan untuk menentukan view","Pengguna yang membuat view tidak dapat diberikan otorisasi DELETE pada view tanpa otorisasi UPDATE pada relasi yang digunakan untuk menentukan view","Pengguna yang membuat view menerima semua privilege pada view tersebut","Pengguna yang membuat view selalu menerima semua privilege atas view tersebut"
+"Sebuah _________ terdiri dari urutan query dan/atau perintah update.","Transaction","Commit","Rollback","Flashback","Abort"
+"Manakah dari berikut ini yang membuat transaksi permanen dalam database?","Commit","View","Rollback","Flashback","Undone"
+"Untuk membatalkan pekerjaan transaksi setelah commit terakhir, mana yang harus digunakan?","Rollback","Commit","View","Flashback","Abort"
+"Transaksi locking yang mengizinkan transaksi lainnya untuk membaca (SELECT) database adalah …","Shared lock","Exclusive lock","Update lock","Write lock","Two-phase locking (2PL)"
+"Berdasarkan perintah berikut:
+TRANSACTION. . . . .
+Commit;
+ROLLBACK;
+Apa yang dilakukan oleh perintah ROLLBACK?","Tidak melakukan apapun","Membatalkan transaksi sebelum COMMIT","Menghapus semua transaksi","Mengulangi transaksi sebelum COMMIT","Mengulang semua perintah sebelumnya"
+"Manakah yang bukan merupakan properti dari transaksi?","Concurrency","Atomicity","Isolation","Durability","Consistency"
+"Query yang benar untuk menghapus sebuah kandidat job adalah …","BEGIN TRANSACTION;
+GO
+DELETE FROM HumanResources.JobCandidate
+    WHERE JobCandidateID = 13;
+GO
+COMMIT TRANSACTION;","BEGIN TRANSACTION;
+GO
+DELETE FROM HumanResources.JobCandidate
+    WHERE JobCandidateID = 13;
+GO
+ROLLBACK TRANSACTION;","BEGIN TRANSACTION;
+GO
+DELETE FROM HumanResources.JobCandidate
+    WHERE JobCandidateID = 13;
+GO
+END;","BEGIN TRANSACTION;
+GO
+DELETE FROM HumanResources.JobCandidate;
+GO
+COMMIT TRANSACTION;","BEGIN TRANSACTION;
+GO
+DELETE FROM HumanResources.JobCandidate;
+GO
+END;"
+"Kegagalan suatu proses dalam transaksi tidak akan mempengaruhi transaksi lainnya disebut …","Consistency","Atomicity","Isolation","Durability","Concurrency"
+"Pentingnya ketepatan pada pemilihan perangkat lunak DBMS berpengaruh terhadap beberapa hal, kecuali …","menentukan status bonafiditas organisasi pengguna","integrasi data yang diolah","kinerja aplikasi","produktivitas bisnis","proteksi dan antisipasi permasalahan manajemen data"
+"Hal yang tidak perlu diperhatikan saat memilih perangkat lunak DBMS adalah","ada tidaknya simbol perangkat lunak","profil aplikasi","fungsi khusus aplikasi","dukungan platform perangkat keras dan sistem operasi","ketahanan dan skalabilitas"
+"Evaluasi melalui data diperoleh pengukuran nilai bisnis dalam melacak progres proses bisnis dalam mencapai tujuan dan manfaat organisasi. Mana yang bukan termasuk pengukuran nilai bisnis?","Project execution efficiency measurements","Business agility improvements","Business quality","Business operation quality","Business environment improvements"
+"Pengukuran terhadap tingkat efisiensi yang ditingkatkan, contohnya termasuk keakuratan yang ditingkatkan, dan mengurangi waktu dan biaya untuk mengoreksi kesalahan karena kesalahan data.Pernyataan tersebut merupakan definisi dari salah satu pengukuran nilai bisnis, yaitu ... ","Business operation quality","Project execution efficiency measurements","Business agility improvements","Business quality","Business environment improvements"
+"Aturan dan standar kualitas data adalah wujud penting dari Metadata. Agar efektif, aturan tersebut perlu dikelola sebagai Metadata. Adapun yang merupakan aturan dan standard kualitas data tersebut adalah sebagai berikut, kecuali…","not tied to business processes and impact","Documented consistently","Defined in terms of Data Quality dimensions","Backed by data analysis","Accessible to all data consumers"
+"Berikut mana yang bukan merupakan pendekatan dalam meningkatkan kualitas data?","Melatih konsumen data","Menerapkan Tata Kelola dan Penatagunaan Data","Menuntut data berkualitas tinggi dari penyedia data:","Tentukan dan terapkan aturan","Buat kontrol entri data:"
+"Komponen penting dalam mengelola kualitas data adalah mengembangkan metrik yang menginformasikan konsumen data tentang karakteristik kualitas yang penting bagi penggunaan data. Dalam mengembangkan metrik tersebut, analis kualitas data harus memperhitungkan karakteristik ini sebagai berikut, kecuali ...","Conformance to service levels","Controllability","Accountability / Stewardship","Business relevance","Measurability"
+"Assesment level pada Data Management Maturity Model, ada beberapa level. Pada level apa yang mencakup kegiatan perencanaan dan tata kelola terpusat, pengelolaan risiko terkait data, metrik kinerja pengelolaan data , dan upaya peningkatan terukur pada kualitas data?","Level 4 Managed","Level 0: No Capability","Level 1 Initial / Ad Hoc","Level 2 Repeatable","Level 3 Defined"
+"Pernyataan di bawah ini yang berkaitan dengan Administrasi Data :","Fungsi yang bertanggung jawab dalam mengelola leseluruhan data dalam organisasi","Fungsi penanganan masalah teknis seperti keamanan, kinerja, dan backup/recovery basis data","Fungsi teknis yang bertanggung jawab terhadap perancangan basis data secara fisik","Mencakup pemilihan perangkat keras dan lunak dalam manajemen data","Meningkatkan kinerja pemrosesan query"
+"Pada tahapan apa fungsi Administrasi Data berperan penuh dalam siklus pengembangan teknologi data?","Perencanaan basis data","Perancangan basis data","Implementasi basis data","Operasi dan pemeliharaan basis data","pertumbuhan dan perubahan basis data"
+"Pada tahapan operasi dan pemeliharaan, fungsi apa yang bisa dilakukan oeh Data Administator?","Melayani pengguna","backup dan recovey terhadap basis data","pembaharuan DBMS","memonitor kinerja basis data","memaksakan prosedur dan standar"
+"Yang merupakan fungsi Data Administrator (DA) pada tahapan Analisis Database :","menentukan konflik-konflik kebutuhan","membuat strategi/kebijakan database organisasi","membuat model biaya/manfaat","membuat arsitektur informasi organisasi","membuat rencana administrasi data"
+"Pernyataan di bawah ini yang bukan berkaitan dengan Administrasi Basis Data :","Fungsi yang bertanggung jawab dalam mengelola leseluruhan data dalam organisasi","Fungsi penanganan masalah teknis seperti keamanan, kinerja, dan backup/recovery basis data","Fungsi teknis yang bertanggung jawab terhadap perancangan basis data secara fisik","Mencakup pemilihan perangkat keras dan lunak dalam manajemen data","Meningkatkan kinerja pemrosesan query"
+"Perkumpulan konseptual dari seluruh database yang dilihat oleh administrator basis data adalah","skema database","hierarki","model","relasi","fungsi"
+"Hak akses database dikontrol oleh …","database administrator","top management","system analyst","system designer","database auditor"
+"Yang bukan merupakan peranan baru administrator basis data (DBA)","Perencanaan basis data","Prosedural DBA","e-DBA","Administrasi Data warehouse ","sinkronisasi Personal Datat Asistance (PDA) oleh DBA"
+"Yang tidak termasuk dalam permasalahan terkait pengelolaan data ","kenyamanan","keamanan dan identitas data","authority","kualitas data","kesesuaian"
+"Manakah yang bukan termasuk permasalahan kualitas data ?","memungkinkan terjadi deadlock","Sumber data yang berasal dari eksternal ada kemunginan tidak akurat, salah, dan tidak lengkap","Penyimpanan data yang redundan","Kekurangan komitmen organisasi","Kekurangan kontrol terhadap privasi dan keamanan  data"
+"Transaksi yang mempunyai prinsip bahwa semua operasi database dilakukan atau tidak sama sekali disebut","Atomic","Isolated","Durable","Consistent","Serializable"
+"Lock yang tidak memperbolehkan perubahan tapi memperbolehkan read yaitu","Shared lock","Implicit lock","Explicit lock","Permanent lock","Exclusive lock"
+"Salah satu jenis permasalahan yang diatasi dalam tata kelola data adalah","Permasalahan dalam perjanjian data sharing","Permasalahan kebersihan fasilitas","Permasalahan kabel jaringan","Permasalahan tata kelola pemerintahan","Permasalahan printer rusak"
+"Saat terjadi kegagalan transaksi database, subsistem DBMS akan melakukan….","Data recovery","Concurency control","Access control","Inconsistency Checking","Locking database"
+"Availability / Ketersesiaan DB adalah persentase waktu sistem atau database dapat digunakan untuk pekerjaan secara produktif.Ada (4) empat faktor yang mempengaruhi availabitity, yaitu kecuali…","adoptability","manageability","recoverability","reliability","serviceability"
+"Kemampuan yang berpengaruh pada database availability untuk mengidentifikasi adanya masalah, mendiagnosis penyebabnya, dan memperbaiki / menyelesaikan masalah adalah","serviceability","adoptability","manageability","recoverability","reliability"
+"Terdapat suatu daftar processor sebagai berikut :
+amd ryzen 5, ryzn 3, ryzen 3, r7, i5, core i7, core i3 dan pentium.
+Agar memudahkan daftar tersebut masuk ke dalam taxonomy maka hal yang pertama harus dilakukan adalah ... .","identifikasi keunikan daftar dan membuatnya menjadi unik","melakukan trimming pada data dengan dua karakter pertama","melakukan trimming pada data dengan dua karakter terakhir","membuat duplikasi pada data tersebut","mencari kata yang paling tengah"
+"Terdapat suatu daftar processor sebagai berikut :
+amd ryzen 5, ryzn 3, ryzen 3, r7, i5, core i7, core i3 dan pentium 4.
+Dari daftar tersebut kata yang memiliki paling banyak sinonim adalah ... .","ryzen","i","core","pentium","amd"
+"Kondisi yang dapat menjelaskan suatu node didalam suatu taksonomi atau klasifikasi disebut ... .","Authoritative term","synonim","Collection","Object","Taxonomy"
+"Salah satu taxonomy yang menyimpan segala suatu bahasa beserta sinonimnya adalah ... .","wordnet","komputernet","warnet","telnet","letternet"
+"Dalam menyusun suatu taxonomy, sejauh manakah yang disebut dengan synonim ... .","suatu kata yang memiliki makna, singkatan yang serupa dan kesalahan ejaan","suatu kata yang memiliki makna yang sama","suatu kata yang memiliki makna yang berbeda","suatu kata yang memiliki singkatan yang serupa","suatu kata yang memiliki makna dan singkatan yang serupa"
+"Salah satu format yang dapat menyimpan suatu taxonomy yang memiliki bentuk seperti xml adalah ... .","RDF","n-triple","turtle","csv","xlsx"
+"Suatu taxonomy atau ontology yang biasanya mendeskripsikan suatu seseorang, aktifitas dan relasinya disebut ... .","foaf","skos","dublin core","sparql","rdf"
+"Penentuan data ingestion secara bacth ataupun real time menggunakan salah satu parameter data ingestion yang disebut ... . ","Data Frequency","Data Size","Data Velocity","Data Format","Data Integration"
+"Berikut adalah beberapa tools data ingestion :
+1. Apache Sqoop
+2. Apache NIFI
+3. Apache Kafka
+4. Apache Flume
+Yang merupakan tools batch data ingestion adalah ... .","1 dan 2","1 dan 3","1 dan 4","2 dan 3","3 dan 4"
+"Berikut adalah beberapa tools data ingestion :
+1. Apache Sqoop
+2. Apache NIFI
+3. Apache Kafka
+4. Apache Flume
+Yang merupakan tools stream (real time) data ingestion adalah ... .","2, 3 dan 4","1 dan 3","1 dan 2","1 dan 4","3 dan 4"
+"Incremental Extract/Full Extract dapat dilakukan pada data ingestion apabila ... .","System menyediakan data mana saja yang berubah","System menyediakan push notifikasi terkait perubahan data","Tidak ada data yang berubah pada system","System tidak menyediakan data mana saja yang berubah","System tidak memberikan detail perubahan data"
+"https://drive.google.com/file/d/1gxXj39AtxP2EMSMADMkBzgIxJR-bYY-u/view?usp=sharing
+Mengubah format atribut jk menjadi L dan P adalah salah satu bentuk transformasi ... .","cleaning","deduplication","summarization","splitting","aggregation"
+"https://drive.google.com/file/d/1gxXj39AtxP2EMSMADMkBzgIxJR-bYY-u/view?usp=sharing
+Menambah kolom RT yang berasal dari alamat merupakan tahap transformasi ... .","splitting","deduplication","summarization","cleaning","aggregation"
+"Beberapa pernyataan terkait efektif loading pada data ingestion :
+1. Menambah index pada tabel untuk mempercepat proses loading
+2. Menghapus index pada tabel, karena index harus dibuat setelah loading
+3. Melakukan single partition pada source data
+4. Melakukan partition data sesuai dengan interval waktu
+Pernyataan diatas yang benar adalah ... .","2 dan 4","1 dan 3","1 dan 4","2 dan 3","1, 2 dan 3"
